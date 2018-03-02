@@ -1,0 +1,107 @@
+<html>
+<head>
+
+<title>Programming exercise</title>
+<meta name="author" content="Robert Dalla & Ephox Pty Ltd ">
+<meta name="description" content="This exercise named 'Shuffling the table cells on the titanic.' is part of job application for Ephox Pty Ltd">
+
+<style>
+html {
+  font-size: 14px;
+}
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #333333;
+  background: white;
+  overflow: hidden;
+}
+.TheUI {
+	width: 200px;
+	border: #aaaaaa 1px solid;
+	padding: 5px;
+	display: block;
+	background-color: #e6f2cf;
+	-webkit-box-shadow: 7px 7px 8px 0px rgba(51, 50, 50, 0.65);
+	-moz-box-shadow:    7px 7px 8px 0px rgba(51, 50, 50, 0.65);
+	box-shadow:         7px 7px 8px 0px rgba(51, 50, 50, 0.65);
+}
+.TheUI .title {
+	display: block;
+}
+.TheUI .adjROW, .TheUI .adjCOL {
+	padding-top: 5px;
+	padding-bottom: 3px;
+	display: block;
+}
+.TheUI .ok {
+	padding-top: 5px;
+	padding-bottom: 3px;
+	display: block;
+}
+iframe {
+	display: block;
+	-webkit-box-shadow: 7px 7px 8px 0px rgba(51, 50, 50, 0.65);
+	-moz-box-shadow:    7px 7px 8px 0px rgba(51, 50, 50, 0.65);
+	box-shadow:         7px 7px 8px 0px rgba(51, 50, 50, 0.65);
+}
+#log {
+	display: block;
+	background-color: #000000;
+	color: #01a809;
+	-webkit-box-shadow: 7px 7px 8px 0px rgba(51, 50, 50, 0.65);
+	-moz-box-shadow:    7px 7px 8px 0px rgba(51, 50, 50, 0.65);
+	box-shadow:         7px 7px 8px 0px rgba(51, 50, 50, 0.65);
+}
+</style>
+
+<script type="text/javascript" src="libraries/jquery-1.11.1.min.js"></script><!-- We need jQuery framework -->
+ 
+</head>
+<body>
+
+
+
+<!-- <p>Place a means for the user to specify the dimensions of the table here. You will also need a button or something similar to trigger writing the table.</p> -->
+
+<!-- <div>INSERT YOUR UI HERE. Note, two fields and a button is good enough but be as creative as you like.</div> -->
+<!-- TABLE DIMENSIONS UI -->
+
+<div class="TheUI">
+	<div class="title">Please adjust the table size</div>
+	<div class="adjROW">
+		<button type="button" onclick="adjROW_minus();" >-</button>
+		<span id="rows_value">2</span>
+		<button type="button" onclick="adjROW_plus();" >+</button>
+		<span id="rows_text">&nbsp;Rows</span>
+	</div>
+	<div class="adjCOL">
+		<button type="button" onclick="adjCOL_minus();" >-</button>
+		<span id="columns_value">2</span>
+		<button type="button" onclick="adjCOL_plus();" >+</button>
+		<span id="columns_text">&nbsp;Columns</span>
+	</div>
+	<div class="ok">
+		<button type="button" onclick="adj_ok();" >Click to confirm</button>
+	</div>
+</div>
+
+<!-- This div will need to appear when the user has accepted the dimensions of the table -->
+<div id="main" style="display: block;">
+  <!-- Use this iframe to write into dynamically -->
+  <iframe style="margin: 100px;"></iframe>
+
+  <!-- This marker is used to display the current coordinates of the mouse within the iframe -->
+  <span id="coords" style="display: none;">Move me to follow the mouse when within the iframe.</span>
+
+</div>
+
+
+<!-- This is the log window -->
+<p>Log</p>
+<div id="log" style="width: 500px; height: 300px; border: 1px solid blue; overflow: scroll;"></div>
+
+
+<script defer type="text/javascript" src="scripts/main.js"></script><!-- Main js : runs once all contents are loaded-->
+		
+</body>
+</html>
